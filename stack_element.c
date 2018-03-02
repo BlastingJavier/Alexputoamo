@@ -14,7 +14,7 @@
 #include "element.h"
 #include "stack_element.h"
 
-#define MAXSTACK 120
+#define MAXSTACK 1200
 
 struct _Stack {
   int top;
