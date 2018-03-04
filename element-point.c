@@ -38,7 +38,8 @@ Status element_setInfo(Element *ele,void *po){
   if (ele->info != NULL){
     free(ele->info);
   }
-  ele->info = point_ini(point_getCoordinateX(point_copy((Point*)po)),point_getCoordinateY(point_copy((Point*)po)),point_getSymbol(point_copy((Point*)po)));
+  /*point_ini(point_getCoordinateX(point_copy((Point*)po)),point_getCoordinateY(point_copy((Point*)po)),point_getSymbol(point_copy((Point*)po)));*/
+  ele->info = point_copy((Point*)po);
   if (ele->info == NULL){
     return ERROR;
   }

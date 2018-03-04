@@ -25,7 +25,7 @@ int main (int argc, char *argv[]){
     return 0;
   }
   /*creamos punto que se utiliza como buffer*/
-  pf = fopen (argv[0],"r");
+  pf = fopen (argv[1],"r");
   if (pf == NULL){
     fprintf(stdout,"Fallo al abrir el archivo amigo\n");
     return 0;
@@ -35,9 +35,9 @@ int main (int argc, char *argv[]){
     fprintf(stdout,"Fallo al iniciar el punto\n");
     return 0;
   }
-  /* asignamos dimensión al mapa */
   fgets(buff, MAX_POINTS,pf);
   sscanf(buff, "%d %d", &nrows, &ncols);
+  fprintf(stdout,"%d,%d",nrows,ncols);
 
   fprintf(stdout,"hola amigo");
   /* leemos el fichero linea a linea */
@@ -66,7 +66,6 @@ int main (int argc, char *argv[]){
         fprintf(stdout,"fallo al hacer set: elemento\n");
         return 0;
       }
-      point_print(stdout,temp);
      /* lo insertamos en la pila */
       stack_push(sta,pele);
     }
