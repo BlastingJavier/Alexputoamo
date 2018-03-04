@@ -13,6 +13,9 @@
 #include<string.h>
 #include <stdlib.h>
 #include "types.h"
+#include "point.h"
+#include "map.h"
+
 
 typedef struct _Element Element;
 /**------------------------------------------------------------------

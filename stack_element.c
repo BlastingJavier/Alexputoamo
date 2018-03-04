@@ -11,8 +11,8 @@
 #include<string.h>
 #include <stdlib.h>
 #include "types.h"
-#include "element.h"
 #include "stack_element.h"
+#include "element.h"
 
 #define MAXSTACK 1200
 

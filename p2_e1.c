@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "element.h"
 #include "stack_element.h"
+#include "element.h"
+
+
 #define MAX 5
 
 int main (){

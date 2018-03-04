@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "stack_element.h"
+#include "element.h"
 
 struct _Element {
   int *info;
@@ -17,6 +16,9 @@ Element * element_ini(){
 
   return new_element;
 }
+
+
+
 void element_destroy(Element *ele){
   if (ele == NULL){
     return;
@@ -25,6 +27,9 @@ void element_destroy(Element *ele){
   free(ele);
   return;
 }
+
+
+
 Status element_setInfo(Element *ele, void* po){
   if (ele == NULL || po == NULL){
     return ERROR;
@@ -39,12 +44,18 @@ Status element_setInfo(Element *ele, void* po){
   *(ele->info) = *((int *)po);
   return OK;
 }
+
+
+
 void * element_getInfo(Element *ele){
   if (ele == NULL){
     return NULL;
   }
   return ele->info;
 }
+
+
+
 Element *element_copy (const Element *ele){
   Element *aux;
   if (ele == NULL){
@@ -61,6 +72,9 @@ Element *element_copy (const Element *ele){
   *(aux->info) = *(ele->info);
   return aux;
 }
+
+
+
 Bool element_equals (const Element *ele , const Element *ele2){
   if (ele == NULL){
     return FALSE;
@@ -70,6 +84,9 @@ Bool element_equals (const Element *ele , const Element *ele2){
   }
   return FALSE;
 }
+
+
+
 int element_print (FILE *pf , const Element * ele){
   if (ele == NULL || pf == NULL || ele->info == NULL){
     return 0;

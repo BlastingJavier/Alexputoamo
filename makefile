@@ -1,16 +1,17 @@
 ########################################################
 CC=gcc
 CFLAGS= -g -Wall -pedantic -ansi
-EJS = p1_e1 p1_e2 p2_e1
+EJS = p1_e1 p1_e2 p2_e1 p2_e2
 ########################################################
 OBJECTSP1E1 = p1_e1.o point.o
 OBJECTSP1E2 = p1_e2.o map.o point.o
 OBJECTSP2E1 = p2_e1.o stack_element.o element-int.o
+OBJECTSP2E2 = p2_e2.o stack_element.o element-point.o map.o point.o
 ########################################################
 MEMORIES_TO_SUBMIT =*.pdf
 DIST_NAME =P1_Prog2_G2163_P11
 HEADERS_TO_SUBMIT=*.h
-SOURCES_TO_SUBMIT=point.c map.c p1_e1.c p1_e2.c stack_element.c element-int.c
+SOURCES_TO_SUBMIT=point.c map.c p1_e1.c p1_e2.c stack_element.c element-int.c element-point.c
 SUPPORT_TO_SUBMIT=makefile
 
 
@@ -26,14 +27,20 @@ p1_e2: $(OBJECTSP1E2)
 p2_e1: $(OBJECTSP2E1)
 	$(CC) $(CFLAGS) -o p2_e1 $(OBJECTSP2E1)
 
+p2_e2: $(OBJECTSP2E2)
+	$(CC) $(CFLAGS) -o p2_e2 $(OBJECTSP2E2)
+
 p1_e1.o: p1_e1.c point.h
 	$(CC) $(CFLAGS) -c p1_e1.c
 
 p1_e2.o: p1_e2.c map.h
 	$(CC) $(CFLAGS) -c p1_e2.c
 
-p2_e1.o: p2_e1.c element.h stack_element.h
+p2_e1.o: p2_e1.c stack_element.h element.h
 	$(CC) $(CFLAGS) -c p2_e1.c
+
+p2_e2.o: p2_e2.c stack_element.h element.h map.h point.h
+	$(CC) $(CFLAGS) -c p2_e2.c
 
 point.o: point.c point.h
 	$(CC) $(CFLAGS) -c point.c
@@ -46,6 +53,9 @@ stack_element.o: stack_element.c stack_element.h
 
 element-int.o: element-int.c element.h
 	$(CC) $(CFLAGS) -c element-int.c
+
+element-point.o: element-point.c element.h point.h
+	$(CC) $(CFLAGS) -c element-point.c
 
 .PHONY: clean
 clean:
