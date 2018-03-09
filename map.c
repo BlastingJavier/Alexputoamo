@@ -303,3 +303,34 @@ Status map_read (FILE *pf, Map *pl) {
  /* no cerramos el fichero ya que lo han abierto fuera */
  return OK;
 }
+
+BOOL deep_map_point_search (Map *map,Point* point_inp,Stack* stack){
+  Element *ele;
+  Element *ele_visited;
+  Point * p_aux;
+  if (map == NULL || point_inp == NULL || stack == NULL){
+    return FALSE;
+  }
+  ele = element_ini();
+
+  if (ele == NULL){
+    return FALSE;
+  }
+  stack_push(stack,element_setInfo(ele,point_inp));
+  while (stack_isEmpty(stack)==FALSE){
+    ele_visited = stack_pop(stack);
+
+    if (point_getSymbol(element_setInfo(ele,point_inp))!= VISITED){
+      map_setPoint(map,element_setInfo(ele,point_inp));
+      for (i=0;i<4;i++){
+        p_aux = map_getNeighborPoint(map,point_inp,i);
+        if (point_isOutput(p_aux) == TRUE){
+          return p_aux;
+        }
+        if (point_isSpace(p_aux) == TRUE{
+          stack_push(stack,p_aux);
+        }
+      }
+    }
+  }
+}
