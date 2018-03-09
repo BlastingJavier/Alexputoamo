@@ -55,5 +55,5 @@ Entrada: pila y fichero donde imprimirla. Salida: Devuelve el número de caracte
 ------------------------------------------------------------------*/
 int stack_print(FILE* pf, const Stack* s);
 void comprobar_pila(FILE* pf,const Stack *s);
-int stack_get_top(const *Stack stack);
+int stack_get_top(const Stack *stack);
 #endif
