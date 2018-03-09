@@ -119,4 +119,7 @@ int map_print(FILE *pf, const Map * pm);
 */
 Status map_read (FILE *pf, Map *pl);
 
+
+BOOL deep_map_point_search (Map *map,Point* point_inp,Stack* stack);
+
 #endif
