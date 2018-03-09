@@ -138,3 +138,11 @@ void comprobar_pila(FILE* pf,const Stack *s){
     }
   }
 }
+int stack_get_top(const *Stack stack){
+  if (stack== NULL){
+    return NULL;
+  }
+  else {
+    return stack->top;
+  }
+}
