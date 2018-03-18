@@ -138,9 +138,9 @@ void comprobar_pila(FILE* pf,const Stack *s){
     }
   }
 }
-int stack_get_top(const *Stack stack){
+int stack_get_top(const Stack *stack){
   if (stack== NULL){
-    return NULL;
+    return 0;
   }
   else {
     return stack->top;
