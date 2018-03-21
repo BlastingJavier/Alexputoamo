@@ -10,7 +10,7 @@ OBJECTSP2E2 = p2_e2.o stack_element.o element-point.o map.o point.o
 OBJECTSP2E3 = p2_e3.o stack_element.o element-point.o map.o point.o map.o
 ########################################################
 MEMORIES_TO_SUBMIT =*.pdf
-DIST_NAME =P1_Prog2_G2163_P11
+DIST_NAME =P2_Prog2_G2163_P11
 HEADERS_TO_SUBMIT=*.h
 SOURCES_TO_SUBMIT=point.c map.c p1_e1.c p1_e2.c p2_e1.c p2_e2.c p2_e3.c stack_element.c element-int.c element-point.c
 SUPPORT_TO_SUBMIT=makefile
