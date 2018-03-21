@@ -14,6 +14,7 @@
 #include <string.h>
 #include "types.h"
 #include "point.h"
+#include "stack_element.h"
 /*Estructura con componentes del mapa (caracteristicas) y el array de punteros
   a puntos*/
 typedef struct _Map Map;
@@ -120,6 +121,6 @@ int map_print(FILE *pf, const Map * pm);
 Status map_read (FILE *pf, Map *pl);
 
 
-BOOL deep_map_point_search (Map *map,Point* point_inp,Stack* stack);
+Bool deep_map_point_search (Map *map,Point* point_inp);
 
 #endif

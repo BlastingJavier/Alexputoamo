@@ -12,6 +12,8 @@
 #include "map.h"
 #include "point.h"
 #include "types.h"
+#include "element.h"
+#include "stack_element.h"
 #define MAX_POINTS 4096
 #define EXCELENTISIMA_FORMULA(x,y,nColumns) ((y*nColumns)+x)
 /*Va por ti Alberto*/
@@ -304,33 +306,58 @@ Status map_read (FILE *pf, Map *pl) {
  return OK;
 }
 
-BOOL deep_map_point_search (Map *map,Point* point_inp,Stack* stack){
+Bool deep_map_point_search (Map *map,Point* point_inp){
   Element *ele;
   Element *ele_visited;
-  Point * p_aux;
-  if (map == NULL || point_inp == NULL || stack == NULL){
-    return FALSE;
-  }
-  ele = element_ini();
 
-  if (ele == NULL){
+  Stack *stack;
+
+  Point *V=NULL;
+  Point *vecino = NULL;
+
+  Move movimiento;
+  stack = stack_ini();
+
+  if (map == NULL || point_inp == NULL){
     return FALSE;
   }
-  stack_push(stack,element_setInfo(ele,point_inp));
+  if (stack == NULL){
+    return FALSE;
+  }
+  ele_visited = element_ini();
+
+  if (ele_visited == NULL){
+    return FALSE;
+  }
+
+  element_setInfo(ele_visited,point_inp);
+  if (stack_push(stack,ele_visited)==ERROR){
+    return FALSE;
+  }
+
   while (stack_isEmpty(stack)==FALSE){
-    ele_visited = stack_pop(stack);
+    ele = stack_pop(stack);
+    V = element_getInfo (ele);
+    point_setSymbol(V,VISITED);
+    map_setPoint(map,V);
 
-    if (point_getSymbol(element_setInfo(ele,point_inp))!= VISITED){
-      map_setPoint(map,element_setInfo(ele,point_inp));
-      for (i=0;i<4;i++){
-        p_aux = map_getNeighborPoint(map,point_inp,i);
-        if (point_isOutput(p_aux) == TRUE){
-          return p_aux;
-        }
-        if (point_isSpace(p_aux) == TRUE{
-          stack_push(stack,p_aux);
+    for (movimiento=RIGHT;movimiento<STAY;movimiento++){
+      vecino = map_getNeighborPoint(map,V,movimiento);
+      if (vecino == NULL){
+        continue;
+      }
+      if (point_isOutput(vecino) == TRUE){
+        return TRUE;
+      }
+      if (point_isSpace(vecino) == TRUE){
+        element_setInfo(ele_visited,vecino);
+        if (stack_push(stack,ele_visited)==ERROR){
+          return FALSE;
         }
       }
     }
+    element_destroy(ele);
   }
+  element_destroy(ele_visited);
+  return FALSE;
 }
