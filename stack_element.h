@@ -35,12 +35,12 @@ Status stack_push(Stack *s, const Element *ele);
 Extrae un elemento en la pila. Entrada: la pila de donde extraerlo. Salida: NULL si no logra extraerlo o el
 elemento extraido si lo logra. Nótese que la pila quedará modificada
 ------------------------------------------------------------------*/
-Element * stack_pop(Stack *s);
+Element *stack_pop(Stack *s);
 /**------------------------------------------------------------------
 Copia un elemento (reservando memoria) sin modificar el top de la pila. Entrada: la pila de donde copiarlo.
 Salida: NULL si no logra copiarlo o el elemento si lo logra
 ------------------------------------------------------------------*/
-Element * stack_top(const Stack *s);
+Element *stack_top(const Stack *s);
 /**------------------------------------------------------------------
 Comprueba si la pila esta vacia. Entrada: pila. Salida: TRUE si está vacia o FALSE si no lo esta
 ------------------------------------------------------------------*/

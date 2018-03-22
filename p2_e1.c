@@ -20,17 +20,17 @@ int main (){
   printf("Pila total: ");
   comprobar_pila(stdout,s1);
 
-  printf ("Introduce un numero");
+  printf ("Introduce un numero: ");
   scanf("%d",&num1);
   element_setInfo(ele,&num1);
   stack_push (s1,ele);
 
-  printf ("Introduce un numero");
+  printf ("Introduce un numero: ");
   scanf("%d",&num2);
   element_setInfo(ele,&num2);
   stack_push (s1,ele);
 
-  printf ("Introduce un numero");
+  printf ("Introduce un numero: ");
   scanf("%d",&num3);
   element_setInfo(ele,&num3);
   stack_push (s1,ele);

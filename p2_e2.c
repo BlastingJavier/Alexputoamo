@@ -8,7 +8,6 @@
 
 #define MAX_POINTS 100
 
-
 int main (int argc, char *argv[]){
   char buff[MAX_POINTS];
   int i, j, nrows, ncols/*indice*/;
@@ -21,13 +20,13 @@ int main (int argc, char *argv[]){
   sta = stack_ini();
 
   if (argc != 2){
-    fprintf(stderr, "Usa esto companero amigo , maquina ,tifon %s <m1.txt>\n",argv[0]);
+    fprintf(stderr, "Usar de esta manera %s <m1.txt>\n",argv[0]);
     return 0;
   }
   /*creamos punto que se utiliza como buffer*/
   pf = fopen (argv[1],"r");
   if (pf == NULL){
-    fprintf(stdout,"Fallo al abrir el archivo amigo\n");
+    fprintf(stdout,"Fallo al abrir el archivo\n");
     return 0;
   }
   temp = point_ini(0, 0, ERRORCHAR);
@@ -39,7 +38,6 @@ int main (int argc, char *argv[]){
   sscanf(buff, "%d %d", &nrows, &ncols);
   fprintf(stdout,"%d,%d",nrows,ncols);
 
-  fprintf(stdout,"hola amigo");
   /* leemos el fichero linea a linea */
   for(i=0; i < nrows;i++) {
     fgets(buff, MAX_POINTS,pf);
@@ -70,7 +68,6 @@ int main (int argc, char *argv[]){
       stack_push(sta,pele);
     }
   }
-  fprintf(stdout,"he llegado hasta aqui amigo\n");
   comprobar_pila(stdout,sta);
   stack_print(stdout,sta);
   /* libera recursos */

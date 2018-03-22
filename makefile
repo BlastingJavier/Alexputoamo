@@ -7,7 +7,7 @@ OBJECTSP1E1 = p1_e1.o point.o
 OBJECTSP1E2 = p1_e2.o map.o point.o stack_element.o element-point.o
 OBJECTSP2E1 = p2_e1.o stack_element.o element-int.o
 OBJECTSP2E2 = p2_e2.o stack_element.o element-point.o map.o point.o
-OBJECTSP2E3 = p2_e3.o stack_element.o element-point.o map.o point.o map.o
+OBJECTSP2E3 = p2_e3.o stack_element.o element-point.o map.o point.o
 ########################################################
 MEMORIES_TO_SUBMIT =*.pdf
 DIST_NAME =P2_Prog2_G2163_P11
@@ -17,7 +17,7 @@ SUPPORT_TO_SUBMIT=makefile
 
 
 .PHONY: all
-all: $(EJS) clean
+all: $(EJS)
 
 p1_e1: $(OBJECTSP1E1)
 	$(CC) $(CFLAGS) -o p1_e1 $(OBJECTSP1E1)
@@ -55,7 +55,7 @@ point.o: point.c point.h
 map.o: map.c map.h point.h element.h types.h stack_element.h
 	$(CC) $(CFLAGS) -c map.c
 
-stack_element.o: stack_element.c stack_element.h element.h
+stack_element.o: stack_element.c stack_element.h element.h types.h
 	$(CC) $(CFLAGS) -c stack_element.c
 
 element-int.o: element-int.c element.h
